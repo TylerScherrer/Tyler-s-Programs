@@ -56,7 +56,7 @@ public class Program_8_Roulette {
 				if (color.charAt(0) == 'r' || color.charAt(0) == 'R') { // Uses getColor method to check what was returned, if Red was returned for Red goes down this If tree
 
 					if (rolledColor.charAt(0) == 'r' || rolledColor.charAt(0) == 'R') { // uses determineColor method to spin for a color, then checks if the color that was spun matches the color that was bet on 
-						chipsNow += chips;												// if you bet on Red and it landed on Red it adds your bet to your chip count 
+						chipsNow += chips;					    // if you bet on Red and it landed on Red it adds your bet to your chip count 
 						System.out.println("Congrats, you won!"); 
 						System.out.println("You have " + chipsNow + " chips now!");
 					} else if (rolledColor.charAt(0) == 'b' || rolledColor.charAt(0) == 'B') { // if you bet on Red and it landed on Black it subtracts your bet from your chip count
@@ -72,7 +72,7 @@ public class Program_8_Roulette {
 
 				else if (color.charAt(0) == 'b' || color.charAt(0) == 'B') { // uses getColor method to check what was returned, if Black was returned for Black goes down this If tree
 					if (rolledColor.charAt(0) == 'b' || rolledColor.charAt(0) == 'B') { // uses determineColor method to spin for a color, then checks if the color that was was spun matches that color that was bet on 
-						chipsNow += chips;												// if you bet on Red and it landed on Red it adds your bet to your chip count 
+						chipsNow += chips;					    // if you bet on Red and it landed on Red it adds your bet to your chip count 
 						System.out.println("Congrats, you won!");
 						System.out.println("You have " + chipsNow + " chips now!");
 
@@ -96,7 +96,7 @@ public class Program_8_Roulette {
 		} while (menu == 2 || menu == 1 || menu != 3);
 	}
 
-	public static void welcome() {										// Welcomes the user to the roulette game
+	public static void welcome() {								// Welcomes the user to the roulette game
 		System.out.println("############################");
 		System.out.println("#   Welcome to Roulette    #");
 		System.out.println("############################");
@@ -110,8 +110,8 @@ public class Program_8_Roulette {
 	public static int getMenuChoice(Scanner stdIn) {					// This method asks the user which type of bet they would like to make.
 		System.out.println("\n1. Pick a number to bet on");				// 1 for a number bet
 		System.out.println("2. Pick a color to bet on");				// 2 for a color bet
-		System.out.println("3. Cash out");								// 3 to cash out
-		System.out.println("");											// Runs until correct input is given 
+		System.out.println("3. Cash out");						// 3 to cash out
+		System.out.println("");								// Runs until correct input is given 
 		System.out.print("Enter Choice [1-3] \n");
 		int gameType = stdIn.nextInt();
 		if (gameType == 1) {
@@ -126,9 +126,9 @@ public class Program_8_Roulette {
 			return 0;
 	}
 
-	public static int getNumber(Scanner stdIn) {						// This method asks for the number the user wishes to bet on.
+	public static int getNumber(Scanner stdIn) {				// This method asks for the number the user wishes to bet on.
 		System.out.print("Please bet on a number between [1 - 36] ");	// Gives a range of 1-36 to choose from
-		int Number = stdIn.nextInt();									// If input is not inside the number range, asks until correct input is given
+		int Number = stdIn.nextInt();					// If input is not inside the number range, asks until correct input is given
 		if (Number <= 36 && Number >= 1) {
 			return Number;
 		}
@@ -139,9 +139,9 @@ public class Program_8_Roulette {
 		return Number;
 	}
 
-	public static String getColor(Scanner stdIn) {						// This method asks the user for the color they wish to bet on.
+	public static String getColor(Scanner stdIn) {					// This method asks the user for the color they wish to bet on.
 		System.out.print("Please choose a color. Red or Black ");		// Checks the first character of the input for 'b', 'B', 'r' or 'R' for a Red or Black bet
-		String Color = stdIn.next();									// If input is not Red or Black, runs until correct input is given
+		String Color = stdIn.next();						// If input is not Red or Black, runs until correct input is given
 
 		if (Color.charAt(0) == 'b' || Color.charAt(0) == 'B') {
 			System.out.println("\nYou choose Black!");
@@ -159,10 +159,10 @@ public class Program_8_Roulette {
 		return Color;
 	}
 	
-	public static int getBet(Scanner stdIn, int chipsNow) {									// This method gets the users bet
+	public static int getBet(Scanner stdIn, int chipsNow) {				            // This method gets the users bet
 		System.out.print("\nHow many chips do you want to bet? [1 - " + chipsNow + "] ");   // Sends a prompt that asks the user for a bet between 1 and their current chip count
-		int Chips = stdIn.nextInt();														// If the bet is within 1 and their current chip count, approves the bet.
-		if (Chips >= 0 && Chips < chipsNow) {												// If the bet is outside this range, asks until a correction input is given
+		int Chips = stdIn.nextInt();							    // If the bet is within 1 and their current chip count, approves the bet.
+		if (Chips >= 0 && Chips < chipsNow) {						    // If the bet is outside this range, asks until a correction input is given
 			System.out.println("\nYou have bet: " + Chips + " chips!");
 
 			return Chips;
@@ -175,11 +175,11 @@ public class Program_8_Roulette {
 		return Chips;
 	}
 
-	public static String determineColor(int spinNum) {										// This method determines the color and the number of the roulette spin
-																							// Uses the Math.random API to generate a random number
-		System.out.println("\nSpinning the wheel....");										// That number is then multiplied by 37 to fit within the 1 - 36 number range
-		double spinNumber = Math.random();													// If the number is even by having a remainder of 0 it is considered a red space
-		spinNum = (int) (spinNumber * 37) + 0;												// If the number is odd by having a remainder it is considered a black space
+	public static String determineColor(int spinNum) {			// This method determines the color and the number of the roulette spin
+										// Uses the Math.random API to generate a random number
+		System.out.println("\nSpinning the wheel....");			// That number is then multiplied by 37 to fit within the 1 - 36 number range
+		double spinNumber = Math.random();				// If the number is even by having a remainder of 0 it is considered a red space
+		spinNum = (int) (spinNumber * 37) + 0;				// If the number is odd by having a remainder it is considered a black space
 																							// If the number generated is 0, it is considered a green space
 		if (spinNum % 2 == 0 && spinNum != 0) {
 			System.out.println("Spin number : " + spinNum);
@@ -202,8 +202,8 @@ public class Program_8_Roulette {
 
 	}
 
-	public static void report(int chipsNow) {													// This method reports the final results
-		if (chipsNow > 100) {																	// Calculates your current chip count to your starting chip count to find your difference gained or lost
+	public static void report(int chipsNow) {	// This method reports the final results
+		if (chipsNow > 100) {			// Calculates your current chip count to your starting chip count to find your difference gained or lost
 			chipsNow -= 100;
 			System.out.println("Thanks for playing! You won a total of " + chipsNow + " chips! You ended with "
 					+ chipsNow + " chips!");
